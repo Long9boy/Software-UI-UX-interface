@@ -113,6 +113,13 @@ const T={
       ["year","Năm xuất bản mới nhất"]
     ],
     searchFeaturedPlaceholder:"Tìm nhanh trong 50 bài học thuật...",
+    citeBtn:"📋 Trích dẫn",apaBtn:"📋 Sao chép APA",citesWord:"trích dẫn",readsWord:"lượt đọc",
+    citesTitle:"Trích dẫn",citesHint:"Lượt trích dẫn khoa học",readsHint:"Lượt đọc trên toàn cầu",defField:"Học thuật",
+    featBadge:"TOP 50 CÔNG TRÌNH HỌC THUẬT KINH ĐIỂN THẾ GIỚI",
+    fm1:"Công trình có link nguồn & ảnh",fm2:"Tổng lượt trích dẫn học thuật",fm3:"Nguồn xuất bản uy tín nhất",
+    hm1:"Tài liệu học thuật toàn cầu",hm2:"Cơ sở dữ liệu khoa học gốc",hm3:"Công trình kinh điển có sẵn",hm4:"Phân tích xu hướng & khoảng trống nghiên cứu",
+    noFeatured:q=>`Không tìm thấy bài học thuật nào phù hợp với từ khóa "${q}".`,
+    toastSaved:"🔖 Đã lưu tài liệu vào thư viện cá nhân",toastUnsaved:"Đã xóa khỏi thư viện lưu trữ",toastColl:n=>`Đã thêm vào bộ sưu tập: ${n}`,
   },
   en:{
     tabs:[["home","Explore"],["featured","Featured"],["saved","Saved"],["colls","Collections"],["hist","History"]],
@@ -191,9 +198,71 @@ const T={
       ["year","Newest Year"]
     ],
     searchFeaturedPlaceholder:"Quick search across 50 papers...",
+    citeBtn:"📋 Cite",apaBtn:"📋 Copy APA",citesWord:"citations",readsWord:"reads",
+    citesTitle:"Citations",citesHint:"Scholarly citations",readsHint:"Reads worldwide",defField:"Academic",
+    featBadge:"TOP 50 LANDMARK ACADEMIC WORKS WORLDWIDE",
+    fm1:"Works with source link & image",fm2:"Total scholarly citations",fm3:"Most reputable publication venues",
+    hm1:"Academic documents worldwide",hm2:"Primary scientific databases",hm3:"Landmark works available",hm4:"Trend & research-gap analysis",
+    noFeatured:q=>`No papers found matching "${q}".`,
+    toastSaved:"🔖 Saved to your personal library",toastUnsaved:"Removed from your library",toastColl:n=>`Added to collection: ${n}`,
   }
 };
 const t=()=>T[S.lang]||T.vi;
+
+/* Nhãn lĩnh vực (tab Nổi bật) trong dữ liệu chỉ có tiếng Việt -> bảng dịch sang tiếng Anh */
+const FIELD_EN={
+  "Điện toán lượng tử":"Quantum Computing",
+  "Trí tuệ nhân tạo & Học sâu":"Artificial Intelligence & Deep Learning",
+  "Thị giác máy tính":"Computer Vision",
+  "Mô hình sinh & Học sâu":"Generative Models & Deep Learning",
+  "Học sâu & Thị giác máy tính":"Deep Learning & Computer Vision",
+  "Xử lý ngôn ngữ tự nhiên":"Natural Language Processing",
+  "Mô hình ngôn ngữ lớn (LLM)":"Large Language Models (LLM)",
+  "Sinh học tính toán & AI":"Computational Biology & AI",
+  "Học tăng cường & Trò chơi trí tuệ":"Reinforcement Learning & Game AI",
+  "Sinh học phân tử & Di truyền học":"Molecular Biology & Genetics",
+  "Công nghệ gen sinh học":"Genetic Biotechnology",
+  "Vật lý lý thuyết":"Theoretical Physics",
+  "Vật lý thiên văn & Vũ trụ học":"Astrophysics & Cosmology",
+  "Vật lý hạt nhân & Năng lượng cao":"Nuclear & High-Energy Physics",
+  "Khoa học máy tính & Mạng Internet":"Computer Science & the Internet",
+  "Mật mã học & Blockchain":"Cryptography & Blockchain",
+  "Mật mã học & An toàn thông tin":"Cryptography & Information Security",
+  "Lý thuyết thông tin":"Information Theory",
+  "Khoa học máy tính & Triết học trí tuệ":"Computer Science & Philosophy of Mind",
+  "Lý thuyết trò chơi & Kinh tế học":"Game Theory & Economics",
+  "Kinh tế học hành vi & Tâm lý học":"Behavioral Economics & Psychology",
+  "Y học & Công nghệ mRNA":"Medicine & mRNA Technology",
+  "Hệ gen học & Sinh học phân tử":"Genomics & Molecular Biology",
+  "Khoa học khí hậu & Môi trường":"Climate & Environmental Science",
+  "Ung thư học & Y sinh học":"Oncology & Biomedicine",
+  "Học máy & Mạng nơ-ron":"Machine Learning & Neural Networks",
+  "Học sâu & Dữ liệu chuỗi thời gian":"Deep Learning & Time Series",
+  "Tối ưu hóa & Học sâu":"Optimization & Deep Learning",
+  "Thị giác máy tính & Xử lý ảnh":"Computer Vision & Image Processing",
+  "Học máy & Thống kê học":"Machine Learning & Statistics",
+  "Học máy & Tối ưu hóa thống kê":"Machine Learning & Statistical Optimization",
+  "Thị giác máy tính & Nhận dạng vật thể":"Computer Vision & Object Detection",
+  "Thị giác máy tính thời gian thực":"Real-Time Computer Vision",
+  "Học tăng cường sâu":"Deep Reinforcement Learning",
+  "An toàn AI & Căn chỉnh mô hình":"AI Safety & Model Alignment",
+  "Học tăng cường từ phản hồi con người (RLHF)":"Reinforcement Learning from Human Feedback (RLHF)",
+  "Mô hình ngôn ngữ mã nguồn mở":"Open-Source Language Models",
+  "Suy luận AI & Kỹ thuật Prompt":"AI Reasoning & Prompt Engineering",
+  "Mô hình khuếch tán (Diffusion Models)":"Diffusion Models",
+  "Sinh hình ảnh & AI đa phương tiện":"Image Generation & Multimodal AI",
+  "Xã hội học & Mạng xã hội":"Sociology & Social Networks",
+  "Khoa học mạng lưới phức tạp":"Complex Network Science",
+  "Khoa học mạng lưới & Vật lý thống kê":"Network Science & Statistical Physics",
+  "Thuật toán di truyền & Tối ưu hóa đa mục tiêu":"Genetic Algorithms & Multi-Objective Optimization",
+  "Triết học khoa học & Lịch sử học":"Philosophy & History of Science",
+  "Hàm kích hoạt & Học sâu":"Activation Functions & Deep Learning",
+  "Chuẩn hóa & Huấn luyện học sâu":"Normalization & Deep Learning Training",
+  "Điều chuẩn & Tránh quá khớp (Overfitting)":"Regularization & Overfitting Prevention",
+  "Hệ phân tán & Xử lý Dữ liệu lớn (Big Data)":"Distributed Systems & Big Data Processing"
+};
+const fieldLbl=p=>S.lang==="en"?(FIELD_EN[p.field]||p.field||t().defField):(p.field||t().defField);
+const descOf=p=>(S.lang==="en"&&p.d_en)?p.d_en:(p.d||p.d_en||"");
 
 // Dialog & Toast container
 document.body.insertAdjacentHTML("beforeend",`
@@ -340,19 +409,19 @@ function heroSearch(){
     <div class="hero-metrics-bar">
       <div class="metric-item">
         <span class="metric-num">250,000,000+</span>
-        <span class="metric-label">Tài liệu học thuật toàn cầu</span>
+        <span class="metric-label">${esc(t().hm1)}</span>
       </div>
       <div class="metric-item">
         <span class="metric-num">OpenAlex & Crossref</span>
-        <span class="metric-label">Cơ sở dữ liệu khoa học gốc</span>
+        <span class="metric-label">${esc(t().hm2)}</span>
       </div>
       <div class="metric-item">
         <span class="metric-num">50 Landmark</span>
-        <span class="metric-label">Công trình kinh điển có sẵn</span>
+        <span class="metric-label">${esc(t().hm3)}</span>
       </div>
       <div class="metric-item">
         <span class="metric-num">AI Deep Search</span>
-        <span class="metric-label">Phân tích xu hướng & khoảng trống nghiên cứu</span>
+        <span class="metric-label">${esc(t().hm4)}</span>
       </div>
     </div>
   </div>
@@ -416,7 +485,7 @@ function featuredView(){
     <div class="featured-header">
       <div class="hero-badge-bubble" style="margin-bottom:14px;">
         <span class="badge-sparkle">🔥</span>
-        <span>TOP 50 CÔNG TRÌNH HỌC THUẬT KINH ĐIỂN THẾ GIỚI</span>
+        <span>${esc(t().featBadge)}</span>
       </div>
       <h2>${esc(t().featuredTitle)}</h2>
       <p>${esc(t().featuredSub)}</p>
@@ -424,15 +493,15 @@ function featuredView(){
       <div class="hero-metrics-bar" style="margin-top:0;padding-top:16px;border-top:0;">
         <div class="metric-item">
           <span class="metric-num">50 / 50</span>
-          <span class="metric-label">Công trình có link nguồn & ảnh</span>
+          <span class="metric-label">${esc(t().fm1)}</span>
         </div>
         <div class="metric-item">
           <span class="metric-num">2,500,000+</span>
-          <span class="metric-label">Tổng lượt trích dẫn học thuật</span>
+          <span class="metric-label">${esc(t().fm2)}</span>
         </div>
         <div class="metric-item">
           <span class="metric-num">Nature · Science · NeurIPS</span>
-          <span class="metric-label">Nguồn xuất bản uy tín nhất</span>
+          <span class="metric-label">${esc(t().fm3)}</span>
         </div>
       </div>
     </div>
@@ -463,44 +532,44 @@ function featuredView(){
           <div class="fc-img-box">
             <img src="${esc(p.img)}" alt="${esc(p.t)}" loading="lazy">
             <div class="fc-img-overlay">
-              <span class="fc-field-badge">${esc(p.field||"Học thuật")}</span>
+              <span class="fc-field-badge">${esc(fieldLbl(p))}</span>
               <span class="fc-year-badge">${p.y||""}</span>
             </div>
           </div>
           <div class="fc-body">
             <div class="fc-stats">
-              <div class="fc-stat-item" title="Lượt trích dẫn khoa học">
-                <span>📚</span> <span>${esc(p.cites||"10,000+")} trích dẫn</span>
+              <div class="fc-stat-item" title="${esc(t().citesHint)}">
+                <span>📚</span> <span>${esc(p.cites||"10,000+")} ${esc(t().citesWord)}</span>
               </div>
-              <div class="fc-stat-item" style="color:#059669;" title="Lượt đọc trên toàn cầu">
-                <span>👁</span> <span>${esc(p.reads||"1M")} lượt đọc</span>
+              <div class="fc-stat-item" style="color:#059669;" title="${esc(t().readsHint)}">
+                <span>👁</span> <span>${esc(p.reads||"1M")} ${esc(t().readsWord)}</span>
               </div>
             </div>
             <h3 class="fc-title" title="${esc(p.t)}">${esc(p.t)}</h3>
             <div class="fc-authors" title="${esc((p.a||[]).join(", "))}">${esc((p.a||[]).join(", "))}</div>
             <div class="fc-venue" title="${esc(p.venue)}">${esc(p.venue)}</div>
-            <p class="fc-desc">${esc(p.d||p.d_en)}</p>
+            <p class="fc-desc">${esc(descOf(p))}</p>
             <div class="fc-actions">
               <div class="fc-actions-left">
                 <a class="btn p" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" title="${esc(t().readPaper)}">
                   <span>${esc(t().readPaper)}</span>
                 </a>
                 <button class="btn" data-cite="${esc(p.t)}" title="${esc(t().copyCitation)}">
-                  <span>📋 Trích dẫn</span>
+                  <span>${esc(t().citeBtn)}</span>
                 </button>
               </div>
               <div>
-                <button class="btn ${isSav?'sv':''}" data-s="${esc(p.t)}" title="Lưu bài viết">
-                  <span>${isSav?'🔖 Đã lưu':'🔖 Lưu'}</span>
+                <button class="btn ${isSav?'sv':''}" data-s="${esc(p.t)}" title="${esc(saveLabel(isSav))}">
+                  <span>${saveLabel(isSav)}</span>
                 </button>
                 <button class="btn" data-o="${esc(p.t)}" title="${esc(t().viewDetail)}">
-                  <span>Chi tiết</span>
+                  <span>${S.lang==="vi"?"Chi tiết":"Details"}</span>
                 </button>
               </div>
             </div>
           </div>
         </article>`;
-      }).join("")||`<div class="empty" style="grid-column: 1 / -1;">Không tìm thấy bài học thuật nào phù hợp với từ khóa "${esc(S.featuredQuery)}".</div>`}
+      }).join("")||`<div class="empty" style="grid-column: 1 / -1;">${esc(t().noFeatured(S.featuredQuery))}</div>`}
     </div>
   </div>`;
 }
@@ -524,7 +593,7 @@ function card(d,extra=""){
         ${S.deep&&d.n?`<span class="ref-badge">[${d.n}]</span>`:""}
         ${d.type?`<span class="b1">${esc(d.type)}</span>`:""}
         <span class="yr">${d.y||""}</span>
-        ${citOf(d)?`<span class="cit-badge" title="Trích dẫn">📚 ${fmtN(citOf(d))}</span>`:""}
+        ${citOf(d)?`<span class="cit-badge" title="${esc(t().citesTitle)}">📚 ${fmtN(citOf(d))}</span>`:""}
         ${d.oa?'<span class="b2">Open Access</span>':""}
       </div>
       <span class="mt ${isHigh?'high':''}">● ${score}% ${esc(t().match)}</span>
@@ -532,14 +601,14 @@ function card(d,extra=""){
     <h3>${esc(d.t)}</h3>
     <div class="au"><button class="lnk" data-o="${esc(d.t)}">${esc((d.a||[]).join(" · "))||esc(t().unknownAuthor)}</button></div>
     <div class="vn"><button class="lnk" data-o="${esc(d.t)}"><i>${esc(d.venue||t().source)}</i></button>${d.src?` <span class="meta">· ${esc(d.src)}</span>`:""}</div>
-    <p class="ab">${esc(d.d||"")}</p>
+    <p class="ab">${esc(descOf(d))}</p>
     ${d.why?`<span class="why">💡 ${esc(t().why)} ${esc(d.why)}</span>`:""}
     <div class="tg">${(d.tags||[]).map(tg=>`<span>${esc(tg)}</span>`).join("")}</div>
     ${resLinks(d)}
     <div class="ft">
       <span class="mono">${extra}</span>
       <div class="ac">
-        <button class="btn" data-cite="${esc(d.t)}" title="Sao chép trích dẫn APA">📋 Trích dẫn</button>
+        <button class="btn" data-cite="${esc(d.t)}" title="${esc(t().copyCitation)}">${S.lang==="vi"?"📋 Trích dẫn":"📋 Cite"}</button>
         <button class="btn ${s?'sv':''}" data-s="${esc(d.t)}">${saveLabel(s)}</button>
         <button class="btn p" data-o="${esc(d.t)}">${esc(t().viewDetail)}</button>
       </div>
@@ -552,21 +621,21 @@ function openD(title){
   $("dlg").innerHTML=`<h3>${esc(d.t)}</h3>
   <div class="meta" style="margin: 8px 0 16px;line-height:1.6;">
     ${esc((d.a||[]).join(", "))} · <i>${esc(d.venue||"")}</i> · <b>${d.y||""}</b>
-    ${d.cites?` · <b style='color:#2563eb'>📚 ${esc(d.cites)} trích dẫn</b>`:""}
+    ${d.cites?` · <b style='color:#2563eb'>📚 ${esc(d.cites)} ${esc(t().citesWord)}</b>`:""}
     ${d.oa?" · <b style='color:#15803d'>Open Access</b>":""}
     ${d.src?" · "+esc(t().source)+": "+esc(d.src):""}
   </div>
   ${d.img?`<div style="margin:14px 0;max-height:220px;overflow:hidden;border-radius:14px;"><img src="${esc(d.img)}" style="width:100%;height:100%;object-fit:cover;"></div>`:""}
   <h4>${d.ai?esc(t().aiSummary):esc(t().origSummary)}</h4>
-  <p style="line-height:1.7;color:#334155;margin:8px 0 14px;font-size:0.96rem;">${esc(d.d||t().noAbstract)}</p>
-  ${d.d_en?`<h4 style="margin-top:14px;color:#64748b;">English Abstract</h4><p style="line-height:1.65;color:#475569;margin:6px 0 12px;font-size:0.9rem;">${esc(d.d_en)}</p>`:""}
+  <p style="line-height:1.7;color:#334155;margin:8px 0 14px;font-size:0.96rem;">${esc(descOf(d)||t().noAbstract)}</p>
+  ${d.d_en&&S.lang!=="en"?`<h4 style="margin-top:14px;color:#64748b;">English Abstract</h4><p style="line-height:1.65;color:#475569;margin:6px 0 12px;font-size:0.9rem;">${esc(d.d_en)}</p>`:""}
   ${d.why?`<p class="why" style="display:block;margin:12px 0;">💡 ${esc(t().why)} ${esc(d.why)}</p>`:""}
   <div class="tg" style="margin:14px 0">${(d.tags||[]).map(x=>`<span>${esc(x)}</span>`).join("")}</div>
   ${resLinks(d)}
   <div class="ft" style="margin-top:20px;padding-top:16px;">
     <span class="meta">${d.url?esc(t().embedNote):esc(t().noLink)}</span>
     <div class="ac">
-      <button class="btn" onclick="copyCitation('${esc(d.t)}')">📋 Sao chép APA</button>
+      <button class="btn" onclick="copyCitation('${esc(d.t)}')">${esc(t().apaBtn)}</button>
       ${d.url?`<a class="btn p" href="${esc(d.url)}" target="_blank" rel="noopener noreferrer">${esc(t().openWeb)}</a>`:""}
       <button class="btn" onclick="$('dlg').close()">${esc(t().closeBtn)}</button>
     </div>
@@ -634,6 +703,7 @@ function adminView(){
    · Sinh ra các bọt nhỏ bay lên dọc đường đi (xem .nav-foam trong css/enhance.css)
    Dùng offsetLeft/offsetWidth (không chịu ảnh hưởng của transform scale còn đang chạy). */
 let _bubbleX=null;
+let _lastActiveTab=null;
 
 function spawnFoam(nav,fromX,toX,top,h){
   const dir=toX>=fromX?1:-1,dist=Math.abs(toX-fromX);
@@ -658,12 +728,16 @@ function updateBubbleSlider(instant=false){
   if(!tab){
     slider.style.opacity="0";
     _bubbleX=null;
+    _lastActiveTab=null;
     return;
   }
   const L=tab.offsetLeft,T=tab.offsetTop,W=tab.offsetWidth,H=tab.offsetHeight;
   const prevL=_bubbleX,prevW=slider._w||W;
   const still=instant===true||prevL===null; // lần đầu / resize: đặt thẳng vào vị trí, không animation
-  const moved=!still&&Math.abs(L-prevL)>2;
+  const curKey=tab.dataset.v;
+  const tabChanged=_lastActiveTab!==null&&_lastActiveTab!==curKey;
+  _lastActiveTab=curKey;
+  const moved=!still&&tabChanged&&Math.abs(L-prevL)>2;
   const ease="cubic-bezier(0.34, 1.45, 0.5, 1)";
 
   slider.style.transition=still?"none":`left 0.6s ${ease}, width 0.6s ${ease}, top 0.3s ease, height 0.3s ease, opacity 0.2s`;
@@ -710,10 +784,18 @@ function renderNav(){
 
   if(slider && tabKeys===currentKeys && existingBtns.length===tabs.length){
     // Giữ nguyên DOM buttons và slider -> di chuyển mượt mà từ tab hiện tại sang tab mới!
+    const tabMap=Object.fromEntries(tabs);
     existingBtns.forEach(btn=>{
       const k=btn.dataset.v;
       const isOn=S.view===k||(S.view==="results"&&k==="home");
       btn.classList.toggle("on",isOn);
+
+      // Cập nhật nhãn ngôn ngữ mới cho nút (sửa lỗi chuyển ngôn ngữ thanh điều hướng không đổi theo)
+      const lbl=btn.querySelector(".tab-label");
+      if(lbl && tabMap[k]!==undefined){
+        lbl.textContent=tabMap[k];
+      }
+
       if(k==="saved"){
         let badge=btn.querySelector(".badge-count");
         if(S.saved.length){
@@ -747,6 +829,12 @@ function draw(){
   
   // 1. Nạp cài đặt (ngôn ngữ…) trước khi vẽ
   sxInit();
+  document.documentElement.lang=S.lang;
+  if(document.title){
+    document.title=S.lang==="en"
+      ?"AcademAI Resource Discovery – Natural-Language Academic Search"
+      :"AcademAI Resource Discovery – Tìm tài liệu học thuật bằng ngôn ngữ tự nhiên";
+  }
 
   // 2. Render Tabs ở giữa với con trượt Bong bóng nước iOS 26
   renderNav();
@@ -1026,6 +1114,8 @@ document.body.onclick=async e=>{
   }
   if(d.lang){
     S.lang=d.lang;
+    document.documentElement.lang=d.lang;
+    if(typeof sxSave==="function")sxSave();
     draw();
     return;
   }
@@ -1070,14 +1160,14 @@ document.body.onclick=async e=>{
     if(idx<0){
       const it=get(d.s);
       if(it)S.saved.push(it);
-      showToast("🔖 Đã lưu tài liệu vào thư viện cá nhân");
+      showToast(t().toastSaved);
     }else{
       S.saved.splice(idx,1);
       Object.values(S.colls).forEach(a=>{
         const j=a.indexOf(d.s);
         if(j>=0)a.splice(j,1);
       });
-      showToast("Đã xóa khỏi thư viện lưu trữ");
+      showToast(t().toastUnsaved);
     }
     persist();
     draw();
@@ -1152,7 +1242,7 @@ document.body.onchange=e=>{
     if(!a.includes(d.c))a.push(d.c);
     persist();
     draw();
-    showToast(`Đã thêm vào bộ sưu tập: ${s.value}`);
+    showToast(t().toastColl(s.value));
   }
   else if("ap" in d){
     S.form.provider=s.value;

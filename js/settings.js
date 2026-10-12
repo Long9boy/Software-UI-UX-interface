@@ -513,7 +513,12 @@ const themeBtnHtml=()=>window.AcademTheme?window.AcademTheme.toggleHtml(S.lang):
 function userNavHtml(){
   sxInit();
   const u=S.user,L=sxT(),th=themeBtnHtml();
+  const langToggle=`<div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" data-lang="vi" class="${S.lang==="vi"?"on":""}">VI</button>
+      <button type="button" data-lang="en" class="${S.lang==="en"?"on":""}">EN</button>
+    </div>`;
   if(u){
+    // Đã đăng nhập: không hiện nút VI/EN ngoài thanh header, ngôn ngữ chỉnh trong Cài đặt > Ngôn ngữ
     return`${th}<div class="user-menu" id="user-menu">
       <button type="button" class="user-pill" data-umenu aria-haspopup="menu" aria-expanded="false" aria-label="${esc(L.umMenu)}" title="${esc(u.email||"")}">
         <span class="user-avatar">${esc((u.name||"U").charAt(0).toUpperCase())}</span>
@@ -531,11 +536,7 @@ function userNavHtml(){
       </div>
     </div>`;
   }
-  return`${th}<div class="lang-toggle" role="group" aria-label="Language">
-      <button type="button" data-lang="vi" class="${S.lang==="vi"?"on":""}">VI</button>
-      <button type="button" data-lang="en" class="${S.lang==="en"?"on":""}">EN</button>
-    </div>
-    <button class="btn-login-hd" data-v="auth">
+  return`${th}${langToggle}<button class="btn-login-hd" data-v="auth">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
       <span>${esc(t().login)}</span>
     </button>`;
