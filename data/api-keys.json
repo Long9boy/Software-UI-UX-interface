@@ -1,0 +1,22 @@
+[
+ {
+  "id": 2,
+  "provider": "Groq",
+  "model": "openai/gpt-oss-120b",
+  "iv": "eb296d47a80ab09a2ab87c5e",
+  "tag": "38daa7df86b0664c77198a7e028b1443",
+  "data": "f41ae476439e9b6f91abf82d3b9975b8f2d3ffd34aaf0f95d7e55d89002d1059a56f3e977ab9fce2b75ed1e8b60a2779b937cf5515b3a38c",
+  "hint": "gsk_12…Z5lm",
+  "createdAt": "2026-09-28T11:32:52.038Z"
+ },
+ {
+  "id": 3,
+  "provider": "OpenAlex",
+  "model": "api",
+  "iv": "99037f1bc81df92fca0511a3",
+  "tag": "2f3fb6bdb2fd2548fb83c95babd331b0",
+  "data": "7fe379c90698401b5a5e6e49efcff5b0341e508bbc96",
+  "hint": "HMHpmo…C230",
+  "createdAt": "2026-09-28T12:26:15.023Z"
+ }
+]

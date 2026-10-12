@@ -1,0 +1,202 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   AcademAI: các chỉnh sửa giao diện (nạp sau style.css và settings.css)
+   1. Chữ "ĩ" ở tiêu đề tab Khám phá bị cắt góc
+   2. Bảng "So sánh bài" tràn ra ngoài viền
+   3. Hiệu ứng bong bóng nước trên thanh tab
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. Tiêu đề: background-clip:text chỉ tô trong khung của chữ, mà letter-spacing âm
+        làm nét cuối (dấu ngã của "ĩ") nhô ra ngoài khung nên bị cắt.
+        Nới khung bằng padding rồi bù lại bằng margin âm để bố cục không đổi. ── */
+.hero-title-main .gradient-text {
+  padding: 0.16em 0.2em 0.22em;
+  margin: -0.16em -0.2em -0.22em;
+  line-height: 1.2;
+}
+
+/* ── 2. Trang kết quả: cột phải của lưới được phép co lại (mặc định 1fr không co
+        dưới độ rộng nội dung nên bảng kéo cả khung ra ngoài) ── */
+.lay {
+  grid-template-columns: 290px minmax(0, 1fr);
+}
+
+.lay > section {
+  min-width: 0;
+}
+
+.dp {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.dp-tw {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Bảng so sánh: các cột chia đều, tiêu đề được xuống dòng, cuộn ngang trong khung nếu hẹp */
+.dp-table.cmp {
+  table-layout: fixed;
+  min-width: 720px;
+}
+
+.dp-table.cmp thead th {
+  white-space: normal;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
+.dp-table.cmp tbody th {
+  width: 120px;
+}
+
+.dp-table.cmp td {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.dp-table.cmp .lnk {
+  white-space: normal;
+}
+
+.cmp-pick {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.cmp-pick span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .lay {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ── 3. Bong bóng nước trên thanh tab ──────────────────────────────────── */
+.hd-nav {
+  isolation: isolate;
+}
+
+/* ── 4. Hiệu năng ────────────────────────────────────────────────────────────────────────────────── */
+/* Thẻ nằm ngoài màn hình không cần dựng/vẽ -> cuộn danh sách 50 bài mượt hơn hẳn.
+   Đồng thời bỏ translateZ(0) của style.css: nó biến MỖI thẻ thành 1 lớp GPU riêng (tốn RAM/GPU). */
+.fc-card,
+.rc {
+  transform: none;
+  content-visibility: auto;
+}
+
+.fc-card { contain-intrinsic-size: auto 470px; }
+.rc { contain-intrinsic-size: auto 280px; }
+
+/* Slider tab đổi vị trí bằng JS (left/width), không cần animate liên tục khi đứng yên */
+.nav-bubble-slider { transition-property: left, width, top, height, opacity; }
+
+/* Bong bóng trượt: thân kính xanh, có vệt sáng và hình dạng nhún nhảy như giọt nước */
+.nav-bubble-slider {
+  background:
+    radial-gradient(120% 140% at 26% 14%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 40%),
+    linear-gradient(135deg, #2563eb 0%, #0ea5e9 62%, #22d3ee 100%);
+  border-radius: 24px;
+  box-shadow:
+    0 6px 22px rgba(37, 99, 235, 0.65),
+    0 0 26px rgba(56, 189, 248, 0.55),
+    inset 0 2px 5px rgba(255, 255, 255, 0.75),
+    inset 0 -7px 12px rgba(6, 40, 110, 0.45);
+  animation: none;
+}
+
+.nav-bubble-slider::before {
+  content: "";
+  position: absolute;
+  left: 11%;
+  top: 9%;
+  width: 36%;
+  height: 28%;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0));
+}
+
+.nav-bubble-slider::after {
+  content: "";
+  position: absolute;
+  right: 12%;
+  bottom: 15%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: -15px -4px 0 -1px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes bubbleMorph {
+  0%, 100% { border-radius: 24px 21px 24px 21px / 21px 24px 21px 24px; }
+  50%      { border-radius: 21px 25px 21px 25px / 25px 21px 25px 21px; }
+}
+
+@keyframes bubbleGlint {
+  0%, 100% { opacity: 0.95; transform: translate(0, 0); }
+  50%      { opacity: 0.55; transform: translate(4px, 2px); }
+}
+
+/* Tab đang chọn: chữ to hơn và uốn lượn nhẹ như nhìn qua nước (bộ lọc #nav-water ở index.html).
+   Phóng to bằng transform nên không làm các tab khác bị xô lệch. */
+.nav-tab.on {
+  padding: 9px 18px;
+  font-size: 0.94rem;
+  transform: none;
+}
+
+.nav-tab.on:hover {
+  transform: translateY(-1px);
+}
+
+.nav-tab .tab-label {
+  display: inline-block;
+  transform-origin: center;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-tab.on .tab-label {
+  transform: scale(1.16);
+  filter: url(#nav-water);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+/* Bọt nước nhỏ bay lên dọc đường bong bóng di chuyển giữa hai tab (tạo bằng JS) */
+.nav-foam {
+  position: absolute;
+  z-index: 3;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle at 30% 28%, rgba(255, 255, 255, 0.95), rgba(125, 211, 252, 0.35) 45%, rgba(56, 189, 248, 0.12) 72%);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 0 8px rgba(125, 211, 252, 0.65);
+  opacity: 0;
+  animation: foamFloat var(--dur, 1s) ease-out forwards;
+}
+
+@keyframes foamFloat {
+  0%   { opacity: 0; transform: translate(0, 0) scale(0.3); }
+  18%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--dx, 0), var(--dy, -24px)) scale(1.05); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-bubble-slider,
+  .nav-bubble-slider::before,
+  .nav-bubble-slider::after,
+  .nav-foam {
+    animation: none;
+  }
+  .nav-tab.on .tab-label {
+    filter: none;
+  }
+}

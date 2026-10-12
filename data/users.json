@@ -1,0 +1,372 @@
+[
+ {
+  "id": 1,
+  "email": "admin@academai.vn",
+  "name": "Quản trị viên",
+  "role": "admin",
+  "passwordHash": "bae7240e34975b112a7b7e977362bee5:587a7de89bae1754ac84b22b03590ce84227426c180da086c3f882afbb8d5fbb1e7ec4f9437065f2c48b735c4ccd80718ece37baaca4d474430c0e2b6ccffae9",
+  "createdAt": "2026-09-28T11:23:56.769Z",
+  "data": {
+   "saved": [],
+   "colls": {
+    "Đọc sau": [],
+    "Tham khảo luận văn": []
+   },
+   "hist": [
+    {
+     "q": "môt",
+     "time": "10/12/2026, 8:19:28 AM",
+     "n": 38
+    },
+    {
+     "q": "Tác động của trí tuệ nhân tạo đến việc tự học của sinh viên đại học",
+     "time": "18:02:17 11/10/2026",
+     "n": 57
+    },
+    {
+     "q": "AI",
+     "time": "16:39:55 11/10/2026",
+     "n": 14
+    },
+    {
+     "q": "profescer",
+     "time": "15:50:14 11/10/2026",
+     "n": 14
+    },
+    {
+     "q": "university",
+     "time": "13:48:36 29/9/2026",
+     "n": 14
+    },
+    {
+     "q": "FrontEnd Backend",
+     "time": "08:27:48 29/9/2026",
+     "n": 7
+    },
+    {
+     "q": "FrontEnd Backend",
+     "time": "08:27:05 29/9/2026",
+     "n": 7
+    },
+    {
+     "q": "Việt nam",
+     "time": "21:50:28 28/9/2026",
+     "n": 14
+    },
+    {
+     "q": "University",
+     "time": "9/28/2026, 9:32:17 PM",
+     "n": 14
+    },
+    {
+     "q": "ICTU University",
+     "time": "9/28/2026, 9:31:57 PM",
+     "n": 0
+    },
+    {
+     "q": "pillars of creation",
+     "time": "19:33:01 28/9/2026",
+     "n": 14
+    },
+    {
+     "q": "leonardodavincy",
+     "time": "19:32:22 28/9/2026",
+     "n": 14
+    },
+    {
+     "q": "Ca sỹ Hà Anh Tuấn",
+     "time": "19:31:55 28/9/2026",
+     "n": 0
+    },
+    {
+     "q": "Sơn tùng Mtp",
+     "time": "19:30:30 28/9/2026",
+     "n": 4
+    },
+    {
+     "q": "Nguyễn Tất Thành",
+     "time": "19:29:32 28/9/2026",
+     "n": 14
+    },
+    {
+     "q": "Hồ chí Minh",
+     "time": "19:28:53 28/9/2026",
+     "n": 14
+    },
+    {
+     "q": "riot game league of legend",
+     "time": "19:15:32 28/9/2026",
+     "n": 10
+    },
+    {
+     "q": "riot game league of legend",
+     "time": "19:11:02 28/9/2026",
+     "n": 10
+    },
+    {
+     "q": "riot game league of legend",
+     "time": "19:11:02 28/9/2026",
+     "n": 10
+    },
+    {
+     "q": "riot game league of legend",
+     "time": "19:11:02 28/9/2026",
+     "n": 10
+    },
+    {
+     "q": "riot game league of legend",
+     "time": "19:11:01 28/9/2026",
+     "n": 10
+    },
+    {
+     "q": "riot game league of legend",
+     "time": "19:10:57 28/9/2026",
+     "n": 10
+    },
+    {
+     "q": "riot game valorant",
+     "time": "19:04:46 28/9/2026",
+     "n": 10
+    },
+    {
+     "q": "sách ngữ văn 10",
+     "time": "18:50:28 28/9/2026",
+     "n": 10
+    },
+    {
+     "q": "sách ngữ văn 10",
+     "time": "18:50:20 28/9/2026",
+     "n": 1
+    },
+    {
+     "q": "sách ngữ văn 10",
+     "time": "18:49:14 28/9/2026",
+     "n": 2
+    },
+    {
+     "q": "sách ngữ văn 10",
+     "time": "9/28/2026, 6:46:16 PM",
+     "n": 14
+    },
+    {
+     "q": "sách giáo khoa lớp 1",
+     "time": "9/28/2026, 6:45:48 PM",
+     "n": 0
+    },
+    {
+     "q": "luận văn tiến sỹ",
+     "time": "9/28/2026, 6:44:42 PM",
+     "n": 14
+    },
+    {
+     "q": "play your underwear background",
+     "time": "9/28/2026, 6:44:13 PM",
+     "n": 14
+    },
+    {
+     "q": "2+2",
+     "time": "9/28/2026, 6:40:10 PM",
+     "n": 7
+    },
+    {
+     "q": "stockfish",
+     "time": "9/28/2026, 6:38:56 PM",
+     "n": 7
+    },
+    {
+     "q": "China",
+     "time": "9/28/2026, 6:33:23 PM",
+     "n": 14
+    },
+    {
+     "q": "free fire game",
+     "time": "9/28/2026, 6:29:03 PM",
+     "n": 14
+    },
+    {
+     "q": "free fire",
+     "time": "9/28/2026, 6:27:49 PM",
+     "n": 14
+    },
+    {
+     "q": "Đột phá trong điện toán lượng tử 2024",
+     "time": "18:26:53 28/9/2026",
+     "n": 14
+    },
+    {
+     "q": "Đột phá trong điện toán lượng tử 2024",
+     "time": "18:26:44 28/9/2026",
+     "n": 14
+    },
+    {
+     "q": "Đột phá trong điện toán lượng tử 2024",
+     "time": "18:26:36 28/9/2026",
+     "n": 14
+    }
+   ]
+  },
+  "settings": {
+   "perPage": 10,
+   "newTab": false,
+   "cite": "none",
+   "citeFmt": "bibtex",
+   "resultLang": "all",
+   "lang": "en",
+   "libs": []
+  }
+ },
+ {
+  "id": 2,
+  "email": "sinhvien@academai.vn",
+  "name": "Sinh viên Demo",
+  "role": "user",
+  "passwordHash": "1da3667a38a5a00311543347193e81ce:b92ceba397ad88791c752fd2c1f51f5a3093e7123fc2fe3bdb821abc703f718a24dad088e3276fa948c025f362ad1b9ff6eaf1c1e4a5eabf75ff245fb4c8312e",
+  "createdAt": "2026-09-28T11:23:56.806Z",
+  "data": {
+   "saved": [
+    {
+     "t": "Quantum Computing: Navigating the Future of Computation, Challenges, and Technological Breakthroughs",
+     "a": [
+      "Qurban Ali Memon",
+      "Mahmoud Al Ahmad",
+      "MICHAEL G. PECHT"
+     ],
+     "y": 2024,
+     "type": "Bài báo",
+     "venue": "Quantum Reports",
+     "oa": true,
+     "d": "Bài báo 2024 tổng quan các tiến bộ quan trọng trong điện toán lượng tử, bao gồm qubit siêu dẫn mở rộng quy mô, giảm lỗi và cải thiện hạ tầng cryogenic; qubit ion bẫy với cổng độ trung thực cao; và qubit photonic hướng tới tính toán ở nhiệt độ phòng. Những phát triển này đưa công nghệ gần hơn tới ứng dụng thực tế.",
+     "tags": [
+      "điện toán lượng tử",
+      "qubit siêu dẫn",
+      "ion bẫy",
+      "photonic"
+     ],
+     "url": "https://doi.org/10.3390/quantum6040039",
+     "sc": 95,
+     "why": "Nêu các đột phá công nghệ năm 2024",
+     "src": "OpenAlex",
+     "ai": true,
+     "lang": "en"
+    },
+    {
+     "id": 47,
+     "t": "Fast and Accurate Deep Network Learning by Exponential Linear Units (ELUs)",
+     "a": [
+      "Djork-Arné Clevert",
+      "Thomas Unterthiner",
+      "Sepp Hochreiter"
+     ],
+     "y": 2015,
+     "venue": "International Conference on Learning Representations (ICLR 2016)",
+     "field": "Hàm kích hoạt & Học sâu",
+     "category": "ai",
+     "cites": "6,500+",
+     "reads": "620K",
+     "doi": "10.48550/arXiv.1511.07289",
+     "url": "https://arxiv.org/abs/1511.07289",
+     "img": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&auto=format&fit=crop&q=80",
+     "d": "Đề xuất hàm kích hoạt ELU đưa giá trị kích hoạt trung bình về gần 0 tương tự hàm chuẩn hóa theo lô, tăng tốc độ hội tụ và giảm nhiễu trong mạng học sâu.",
+     "d_en": "Introduces Exponential Linear Units (ELUs), accelerating deep neural network convergence through natural gradient shifts."
+    }
+   ],
+   "colls": {
+    "Đọc sau": [],
+    "Tham khảo luận văn": []
+   },
+   "hist": [
+    {
+     "q": "Climate change and food security in Vietnam",
+     "time": "10/12/2026, 10:14:59 AM",
+     "n": 55
+    },
+    {
+     "q": "Systematic reviews on deep learning for NLP",
+     "time": "09:02:07 11/10/2026",
+     "n": 10
+    },
+    {
+     "q": "Landmax 81",
+     "time": "08:44:21 11/10/2026",
+     "n": 10
+    },
+    {
+     "q": "Systematic reviews on deep learning for NLP",
+     "time": "13:33:25 29/9/2026",
+     "n": 5
+    },
+    {
+     "q": "Systematic reviews on deep learning for NLP",
+     "time": "13:33:22 29/9/2026",
+     "n": 14
+    },
+    {
+     "q": "Đột phá trong điện toán lượng tử 2024",
+     "time": "13:32:40 29/9/2026",
+     "n": 9
+    },
+    {
+     "q": "Đột phá trong điện toán lượng tử 2024",
+     "time": "13:32:39 29/9/2026",
+     "n": 9
+    }
+   ]
+  },
+  "scholar": {
+   "name": "LongHuu",
+   "aliases": [],
+   "affiliation": "ICTU",
+   "verifyEmail": "huulongcheo1@gmail.com",
+   "interests": [
+    "Game Development"
+   ],
+   "homepage": "https://long9boy.github.io/",
+   "autoUpdate": true,
+   "isPublic": true,
+   "emailAlerts": true,
+   "created": true,
+   "articles": []
+  },
+  "settings": {
+   "perPage": 10,
+   "newTab": false,
+   "cite": "none",
+   "citeFmt": "bibtex",
+   "resultLang": "all",
+   "lang": "en",
+   "libs": []
+  }
+ },
+ {
+  "id": 3,
+  "email": "admin@scholarlens.vn",
+  "name": "Quản trị viên",
+  "role": "admin",
+  "passwordHash": "089f98bd674b3e5664f59043a9e042c4:bab3d8f784e9aa6a612c9106654eaed2755cef536ce22fedbeda43a4e2a73ecb4496574734e1cc07c75cb42ed1800ddadee34085ffe0f76ea9be15e9aebc6c19",
+  "createdAt": "2026-09-28T11:23:56.853Z",
+  "data": {
+   "saved": [],
+   "colls": {
+    "Đọc sau": [],
+    "Tham khảo luận văn": []
+   },
+   "hist": []
+  }
+ },
+ {
+  "id": 4,
+  "email": "sinhvien@scholarlens.vn",
+  "name": "Sinh viên Demo",
+  "role": "user",
+  "passwordHash": "58dbc30ab40e13cb8bfe7e6b377d8878:b95af631f78037793ecd2a45a3a54e37e26b6dd1d70a6e1940f3ae2f8610d7023a2a4f00c559ff4384a0ad0dc150d4e457a3f2e80af17bfb9b2e061c39d96ad2",
+  "createdAt": "2026-09-28T11:23:56.898Z",
+  "data": {
+   "saved": [],
+   "colls": {
+    "Đọc sau": [],
+    "Tham khảo luận văn": []
+   },
+   "hist": []
+  }
+ }
+]

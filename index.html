@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AcademAI Resource Discovery – Tìm tài liệu học thuật bằng ngôn ngữ tự nhiên</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/settings.css">
+<link rel="stylesheet" href="css/enhance.css">
+<link rel="stylesheet" href="css/theme.css">
+<script src="js/theme.js"></script>
+</head>
+<body>
+<!-- Bộ lọc sóng nước: làm chữ ở tab đang chọn uốn lượn nhẹ như nhìn qua mặt nước -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="nav-water" x="-10%" y="-30%" width="120%" height="160%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.015 0.09" numOctaves="2" seed="4" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.5" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+<header class="hd" id="main-header">
+  <div class="hd-left">
+    <div class="brand" data-v="home" role="button" tabindex="0">
+      <div class="brand-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+      </div>
+      <div class="brand-name">
+        <b>AcademAI</b>
+        <small>Resource Discovery</small>
+      </div>
+    </div>
+  </div>
+  
+  <nav id="nav" class="hd-nav"></nav>
+  
+  <div class="hd-right" id="user-nav"></div>
+</header>
+
+<main id="app"></main>
+
+<script src="js/featured.js"></script>
+<script src="js/data.js"></script>
+<script src="js/parser.js"></script>
+<script src="js/background.js"></script>
+<script src="js/analysis.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
